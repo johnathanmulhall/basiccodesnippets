@@ -1,0 +1,13 @@
+def nest_elements(list1, start_index, stop_index):
+	return_lst = []
+	nested_lst = []
+
+	for idx, obj in enumerate(list1):
+		if idx >= start_index and idx <= stop_index:
+			nested_lst.append(obj)
+
+			if idx == stop_index:
+				return_lst.append(nested_list)
+
+		else:
+			return_lst.append(obj)
