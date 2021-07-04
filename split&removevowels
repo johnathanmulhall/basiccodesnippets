@@ -1,0 +1,14 @@
+def split_remove(the_str):
+    vowels = "aeiouAEIOU"
+    new_list = []
+    garbage = []
+
+    for chars in the_str.split(","):
+        for chars2 in chars:
+            if chars2 in vowels:
+                garbage.append(chars2)
+            else:
+                new_list.append(chars2)
+                
+        
+    return new_list
