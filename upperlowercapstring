@@ -1,0 +1,13 @@
+def string_op(string, command):
+    output = ""
+    
+    if command.lower() == "upper":
+        output = string.upper()
+    elif command.lower() == "lower":
+        output = string.lower()
+    elif command.lower() == "capitalize":
+        output = string.capitalize()
+    else:
+        output = "Invalid command!"
+    
+    return output
