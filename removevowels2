@@ -1,0 +1,9 @@
+def remove_vowels(string):
+
+    vowels = ['a','A','e','E','i','I','o','O','u','U']
+
+    out = string
+    for vowel in vowels:
+        out = out.replace(vowel, '')
+
+    return out
