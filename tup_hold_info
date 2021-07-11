@@ -1,0 +1,10 @@
+def tup_hold_info(list, find):
+    find_val = find
+    count = list.count(find)
+    indicies = []
+    
+    for i, x in enumerate(list):
+      if x == find:
+        indicies.append(i) 
+          
+    return find_val, count, indicies
