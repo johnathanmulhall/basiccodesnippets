@@ -1,0 +1,14 @@
+def set_accumulator(n): #n element of N
+    accum = set()
+    start = 0
+    
+    while start < n: #use while loop just cuz
+        if start % 2 == 0:
+            accum.add(start)
+            start += 2 #once one element is found modulus 2, by definition, we only need consider every other integer
+        else:
+          break
+
+        accum.add(n) #including n
+    
+    return accum
