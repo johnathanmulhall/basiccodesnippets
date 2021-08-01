@@ -1,0 +1,10 @@
+def letter_idx(text):
+  vowels = 'aeiouy'
+  string = text.lower()
+  count_vowels = {}
+ 
+  for char in vowels:
+    count = string.count(vowel)
+    count_vowels[vowel] = count
+ 
+  return print(count_vowels)
