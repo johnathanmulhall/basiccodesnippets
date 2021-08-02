@@ -1,0 +1,21 @@
+def balanced_parens(line):
+      
+    start_parens = tuple('({[') #wasn't sure if I should include brackets, too?
+    close_parens = tuple(')}]')
+    d = dict(zip(start_parens, close_parens)) #using a dictionary to zip them together
+    op_list = []
+    banned_list = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*_?></-+='
+
+    for char in banned_list:
+      new_line = ''.join(c for c in line if c not in banned_list)
+  
+    for i in line:
+        if i in start_parens:
+            op_list.append(d[i])
+        elif i in close_parens:
+            if not op_list or i != op_list.pop():
+                return print("N" + " " + new_line)
+    if not op_list:
+        return print("Y" + " " + new_line)
+    else:
+        return print("Y" + " " + new_line)
