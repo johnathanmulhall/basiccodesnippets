@@ -1,0 +1,19 @@
+input_string = input("Please input history here:")
+
+def longest_streak(input_string):
+  last_char = ""
+  current_seq_len = 0
+  max_seq_len = 0
+
+  for char in input_string:
+    if char == last_char and char == "Y": #looking for Y's
+      current_seq_len += 1 
+      if current_seq_len > max_seq_len:
+        max_seq_len = current_seq_len
+    else:
+      current_seq_len = 1
+      last_char = char
+
+  return print(max_seq_len)
+
+longest_streak(input_string)
