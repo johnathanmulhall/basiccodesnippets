@@ -1,0 +1,25 @@
+def cleanFiles(currentMem,exMem):
+"""
+currentMem: file containing list of current members
+exMem: File containing list of old members
+
+removes all rows from currentMem containing 'no' and appends them to the exMem file
+"""
+
+with open(currentMem, "r+" as writeFile
+  with open(exMem, "a+") as appendFile
+    writeFile.seek(0)
+    members = writeFile.readlines()
+    header = members[0]
+    members.pop(0)
+    
+    inactive = [member for member in members if ('no' in member)]
+    
+    writeFIle.seek(0)
+    writeFIle.write(header)
+    for member in members:
+      if (members in inactive):
+        appendFile.write(member)
+       else:
+        writeFile.write(member)
+      writeFile.truncate()
