@@ -1,0 +1,51 @@
+#!pip install ibm_watson wget
+
+from ibm_watson import SpeechtoTextV1
+import json
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
+url_st2 = ""          #check your API key dox
+iam_apikey_s2t = ""   #check your API key dox
+
+authenticator = IAMAuthenticator(iam_apikey_s2t)
+s2t = SpeechToTextV1(authenticator=authenticator)
+s2t = set_service_url(url_s2t)
+
+filename = ""         #audio file to turn to text
+
+with open(filename, mode="rb") as wav:
+  response = s2t.recognize(audio=wav, context_type='audio/mp3')
+  
+#reponse.result       #contains dictionary c translation and confidences
+
+from pandas import json_normalize
+
+#json_normalize(response.result['results'],"alternatives")    #indexes w/ data confidences, looks pretty
+#respone              #check it out, make sure that bitch is sitting in mem
+
+recognized_text = response.result['results'][0]["alternatives"][0]["transcript"] #grab just the translation
+
+#now we get the translator
+from ibm_watson import LanguageTranslatorV3
+
+url_lt = ""         #check your API key dox
+apikey_lt = ""      #check your API key dox
+version_lt = ""     #this api requires a date version
+
+authenticator = IAMauthenticator(apikey_lt)
+language_translator = LanguageTranslatorVW(version = version_lt, authenticator = authenticator)
+language_translator.set_service_url(url_lt)
+#language_translator   #check it before you wreck it
+
+#json_normalize(language_translator.list_identifiable_languages().get_result(), "language") #what languages are available?
+
+translation_response = language_translator.translate(.\
+  text=recognized_text, model_id='en-es')
+#translation_response   #check it before you write THIS one
+
+#translation = translation_response.get_result()  #dictionary with translation
+#translation
+
+spanish_translation= translation['translation'][0]['translation'] #pulls the entry with JUST the translation
+#spanish_translation
+
