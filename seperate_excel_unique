@@ -1,0 +1,14 @@
+import pandas as pd
+
+excel_file_path=r"path" #change path for each run
+
+df = pd.read_excel(excel_file_path)
+#print(df)
+
+split_values = df['name'].unique() #change name
+#print(split_values)
+
+for value in split_values:
+	df1 = df[df['name']==value] #change name here, too
+	output_file_name = "Offices_" + str(value) +"_.xlsx"
+	df1.to_excel(output_file_name, index = False)
